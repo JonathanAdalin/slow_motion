@@ -11,6 +11,6 @@ namespace slow_motion_io {
 // fails.
 sequence::Sequence* LoadVideo(std::string video_path);
 
-}  // namespace slow_moition_io
+}  // namespace slow_motion_io
 
 #endif  // SLOW_MOTION_IO_H_
