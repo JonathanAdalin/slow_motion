@@ -1,4 +1,5 @@
 *.sln
 *.vs
+.editorconfig
 Debug
-slow_motion
+slow_motion/*
