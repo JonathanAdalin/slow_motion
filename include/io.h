@@ -7,9 +7,12 @@
 
 namespace slow_motion_io {
 
-// Loads the video into a sequence of frames. Throws an exception if it load
-// fails.
-sequence::Sequence* LoadVideo(std::string video_path);
+// Loads the video from <video_path> into a sequence of frames, sequence.
+// Throws an exception if it load fails.
+void LoadVideo(sequence::Sequence &sequence, std::string video_path);
+
+// Displays the video to the user.
+void DisplayVideo(sequence::Sequence sequence);
 
 struct LoadVideoFailException : public std::exception {
    const char * what() const throw () {

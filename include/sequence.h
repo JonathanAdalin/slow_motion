@@ -14,6 +14,7 @@ class Sequence {
   // Accessors and mutators
   const std::list<cv::Mat> get_frames() { return this->frames; }
   void set_frames(std::list<cv::Mat> frames) { this->frames = frames; }
+  void push_back(cv::Mat frame) { this->frames.push_back(frame); }
 
  private:
   // Frame interpolation requires multiple inserts, which are O(1) for lists.

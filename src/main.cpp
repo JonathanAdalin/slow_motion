@@ -9,7 +9,15 @@ int main(int argc, char** argv) {
     return -1;
   }
 
-  slow_motion_io::LoadVideo(argv[1]);
+  sequence::Sequence sequence;
+  try {
+    slow_motion_io::LoadVideo(sequence, argv[1]);
+    slow_motion_io::DisplayVideo(sequence);
+  }
+  catch (slow_motion_io::LoadVideoFailException e) {
+    std::cout << e.what() << std::endl;
+  }
+
 
   return 0;
 }
