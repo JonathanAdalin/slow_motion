@@ -1,5 +1,6 @@
 *.sln
 *.vs
 .editorconfig
+media
 Debug
 slow_motion/*
