@@ -2,7 +2,7 @@
 #include "io.h"
 
 namespace sequence {
-  Sequence::Sequence(std::string video_path) {
+  Sequence::Sequence() {
    
   }
 }

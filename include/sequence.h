@@ -9,7 +9,7 @@ namespace sequence {
 
 class Sequence {
  public:
-  Sequence(std::string video_path);
+  Sequence();
 
   // Accessors and mutators
   const std::list<cv::Mat> get_frames() { return this->frames; }

@@ -11,6 +11,12 @@ namespace slow_motion_io {
 // fails.
 sequence::Sequence* LoadVideo(std::string video_path);
 
+struct LoadMP4FailException : public std::exception {
+   const char * what() const throw () {
+     return "Could not load MP4.";
+   }
+};
+
 }  // namespace slow_motion_io
 
 #endif  // SLOW_MOTION_IO_H_
