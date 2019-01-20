@@ -6,18 +6,14 @@ void LoadVideo(sequence::Sequence &sequence, std::string video_path) {
   cv::VideoCapture video(video_path);
   if (!video.isOpened())
     throw LoadVideoFailException();
-
   while (1) {
-    cv::Mat current_frame;
+    cv::Mat current_frame;  // We need to create a new frame on each iteration.
     video >> current_frame;
     if (current_frame.empty())
       break;
-
     sequence.push_back(current_frame);
   }
-
   video.release();
-
   return;
 }
 
