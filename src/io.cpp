@@ -5,7 +5,7 @@ namespace slow_motion_io {
 sequence::Sequence* LoadVideo(std::string video_path) {
   cv::VideoCapture video(video_path);
   if (!video.isOpened())
-    throw LoadMP4FailException();
+    throw LoadVideoFailException();
 
   sequence::Sequence* sequence = new sequence::Sequence();
   
@@ -17,7 +17,7 @@ sequence::Sequence* LoadVideo(std::string video_path) {
 
     // TODO replace with frame storing
     cv::imshow("Frame", current_frame);
-    char c = (char)cv::waitKey(25);
+    char c = (char) cv::waitKey(25);
     if (c == 27)
       break;
   }

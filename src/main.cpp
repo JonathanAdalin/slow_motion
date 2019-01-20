@@ -11,6 +11,5 @@ int main(int argc, char** argv) {
 
   slow_motion_io::LoadVideo(argv[1]);
 
-  cv::waitKey(0);
   return 0;
 }
