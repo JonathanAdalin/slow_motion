@@ -18,7 +18,6 @@ void LoadVideo(sequence::Sequence &sequence, std::string video_path) {
 }
 
 void DisplayVideo(sequence::Sequence sequence) {
-  std::list<cv::Mat>::iterator i;
   for (cv::Mat frame : sequence.get_frames()) {
     cv::imshow("Frame", frame);
     char c = (char)cv::waitKey(25);  // Give some time to see the frame.
