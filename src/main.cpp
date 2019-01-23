@@ -1,7 +1,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
-#include "io.h"
+#include "sequence.h"
 
 int main(int argc, char** argv) {
   if (argc != 2) {
@@ -11,16 +11,12 @@ int main(int argc, char** argv) {
 
   sequence::Sequence sequence;
   try {
-    slow_motion_io::LoadVideo(sequence, argv[1]);
-    slow_motion_io::DisplayVideo(sequence);
-    slow_motion_io::WriteVideo(sequence, "C:\\Users\\jadali\\Desktop");
+    sequence.LoadVideo(argv[1]);
+    sequence.DisplayVideo();
+    sequence.WriteVideo("C:\\Users\\jadali\\Desktop");
   }
-  catch (slow_motion_io::LoadVideoFailException e) {
+  catch (std::exception e) {
     std::cout << e.what() << std::endl;
   }
-  catch (slow_motion_io::WriteVideoFailException e) {
-    std::cout << e.what() << std::endl;
-  }
-
   return 0;
 }
