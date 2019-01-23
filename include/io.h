@@ -11,6 +11,10 @@ namespace slow_motion_io {
 // Throws a LoadVideoFailException exception if the load fails.
 void LoadVideo(sequence::Sequence &sequence, std::string video_path);
 
+// Writes <sequence> as an .MP4 to <video_path>.
+// Throws a WriteVideoException exception if the write fails.
+void WriteVideo(sequence::Sequence sequence, std::string video_path);
+
 // Displays the video to the user.
 void DisplayVideo(sequence::Sequence sequence);
 
@@ -18,6 +22,13 @@ struct LoadVideoFailException : public std::exception {
    const char * what() const throw () {
      return "Could not load target video.";
    }
+};
+
+struct WriteVideoFailException : public std::exception {
+  const char * what() const throw () {
+    return "Could not write video. Target path not accessible or does not \
+            \nexist.";
+  }
 };
 
 }  // namespace slow_motion_io

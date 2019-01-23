@@ -1,3 +1,5 @@
+#include <sys/types.h>
+#include <sys/stat.h>
 #include "io.h"
 
 namespace slow_motion_io {
@@ -14,6 +16,17 @@ void LoadVideo(sequence::Sequence &sequence, std::string video_path) {
     sequence.push_back(current_frame);
   }
   video.release();
+  return;
+}
+
+void WriteVideo(sequence::Sequence sequence, std::string video_path) {
+  struct stat info;
+  if (stat(video_path.c_str(), &info) != 0)
+    throw WriteVideoFailException();
+  else if (info.st_mode & S_IFDIR)
+    return;
+  else
+    throw WriteVideoFailException();
   return;
 }
 
