@@ -7,14 +7,14 @@ namespace slow_motion_io {
 
 struct LoadVideoFailException : public std::exception {
    const char * what() const throw () {
-     return "Could not load target video.";
+     return " Could not load target video.";
    }
 };
 
 struct WriteVideoFailException : public std::exception {
   const char * what() const throw () {
-    return "Could not write video. Target path not accessible or does not \
-            \nexist.";
+    return " Could not write video. Target path not accessible or does not \
+            \n exist.";
   }
 };
 

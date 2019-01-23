@@ -5,9 +5,14 @@
 
 namespace sequence {
 
-Sequence::Sequence() {}
+Sequence::Sequence(std::string video_path) {
+  LoadVideo(video_path);
+}
 
 void Sequence::LoadVideo(std::string video_path) {
+  if (!this->is_empty()) {
+    throw VideoLoadedException();
+  }
   cv::VideoCapture video(video_path);
   if (!video.isOpened())
     throw slow_motion_io::LoadVideoFailException();

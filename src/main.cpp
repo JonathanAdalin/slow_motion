@@ -9,13 +9,12 @@ int main(int argc, char** argv) {
     return -1;
   }
 
-  sequence::Sequence sequence;
   try {
-    sequence.LoadVideo(argv[1]);
+    sequence::Sequence sequence = sequence::Sequence(argv[1]);
     sequence.DisplayVideo();
     sequence.WriteVideo("C:\\Users\\jadali\\Desktop");
   }
-  catch (std::exception e) {
+  catch (std::exception &e) {
     std::cout << e.what() << std::endl;
   }
   return 0;
