@@ -20,6 +20,10 @@ class Sequence {
   bool is_empty() { return this->frames.empty(); }
   const std::string get_name() { return this->name; }
   void set_name(std::string name) { this->name = name; }
+  void set_frame_width(int width) { this->frame_width = width; }
+  void set_frame_height(int height) { this->frame_height = height; }
+  int get_frame_width() { return this->frame_width; }
+  int get_frame_height() { return this->frame_height; }
 
   // Loads the video from <video_path> into a sequence of frames.
   // Throws a LoadVideoFailException exception if the load fails.
@@ -45,6 +49,8 @@ class Sequence {
   // Frame interpolation requires multiple inserts, which are O(1) for lists.
   std::list<cv::Mat> frames;
   std::string name;
+  int frame_width;
+  int frame_height;
 };
 
 }  // namespace sequence

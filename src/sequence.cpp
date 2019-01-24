@@ -16,12 +16,19 @@ void Sequence::LoadVideo(std::string video_path) {
   cv::VideoCapture video(video_path);
   if (!video.isOpened())
     throw slow_motion_io::LoadVideoFailException();
+  bool is_first_frame = true;
   while (1) {
     cv::Mat current_frame;  // We need to create a new frame on each iteration.
     video >> current_frame;
     if (current_frame.empty())
       break;
     this->push_back(current_frame);
+    // Frames in a video are of equal dimension.
+    if (is_first_frame) {
+      is_first_frame = false;
+      this->set_frame_width(current_frame.cols);
+      this->set_frame_height(current_frame.rows);
+    }
   }
   video.release();
   return;
