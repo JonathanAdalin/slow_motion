@@ -13,8 +13,6 @@ int main(int argc, char** argv) {
     sequence::Sequence sequence = sequence::Sequence(argv[1]);
     sequence.DisplayVideo();
     sequence.WriteVideo("C:\\Users\\jadali\\Desktop");
-    std::cout << "Width " << sequence.get_frame_width() << std::endl;
-    std::cout << "Height " << sequence.get_frame_height() << std::endl;
   }
   catch (std::exception &e) {
     std::cout << e.what() << std::endl;

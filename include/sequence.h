@@ -18,6 +18,8 @@ class Sequence {
   const std::list<cv::Mat> get_frames() { return this->frames; }
   void push_back(cv::Mat frame) { this->frames.push_back(frame); }
   bool is_empty() { return this->frames.empty(); }
+  const cv::Mat front() { return this->frames.front(); }
+  void pop_front() { this->frames.pop_front(); }
   const std::string get_name() { return this->name; }
   void set_name(std::string name) { this->name = name; }
   void set_frame_width(int width) { this->frame_width = width; }
