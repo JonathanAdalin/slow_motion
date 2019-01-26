@@ -24,7 +24,7 @@ void Sequence::LoadVideo(std::string video_path) {
     if (current_frame.empty())
       break;
     this->push_back(current_frame);
-    if (is_first_frame) {   // Frames in a video are of equal dimension.
+    if (is_first_frame) {  // Frames in a video are of equal dimension.
       is_first_frame = false;
       this->set_frame_width(current_frame.cols);
       this->set_frame_height(current_frame.rows);
@@ -60,4 +60,4 @@ void Sequence::DisplayVideo() {
 
 }
 
-}
+}  // namespace flow

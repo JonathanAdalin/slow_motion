@@ -8,7 +8,6 @@ int main(int argc, char** argv) {
     std::cout << "Enter the path to the video as an argument" << std::endl;
     return -1;
   }
-
   try {
     sequence::Sequence sequence = sequence::Sequence(argv[1]);
     sequence.DisplayVideo();
