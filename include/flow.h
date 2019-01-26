@@ -6,8 +6,8 @@
 namespace flow {
 
 // Calculates the optical flow between two frames <frame_1> and <frame_2>
-cv::Mat calculate_flow(cv::Mat frame_1, cv::Mat frame_2);
+cv::Mat CalculateFlow(cv::Mat frame_1, cv::Mat frame_2);
 
 }  // namespace flow
 
-#endif  // SLOW_MOTION_FLOW_H_
+#endif  // SLOW_MOTION_FLOW_H_:

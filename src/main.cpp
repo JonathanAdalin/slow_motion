@@ -2,6 +2,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 #include "sequence.h"
+#include "flow.h"  // TODO remove
 
 int main(int argc, char** argv) {
   if (argc != 2) {
@@ -10,8 +11,9 @@ int main(int argc, char** argv) {
   }
   try {
     sequence::Sequence sequence = sequence::Sequence(argv[1]);
-    sequence.DisplayVideo();
-    sequence.WriteVideo("C:\\Users\\jadali\\Desktop");
+    // sequence.DisplayVideo();
+    flow::CalculateFlow(sequence.front(), sequence.front());
+    sequence.WriteVideo("C:\\Users\\jadali\\Code\\slow_motion\\out");
   }
   catch (std::exception &e) {
     std::cout << e.what() << std::endl;

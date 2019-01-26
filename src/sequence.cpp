@@ -40,8 +40,8 @@ void Sequence::WriteVideo(std::string video_path) {
     throw slow_motion_io::WriteVideoFailException();
   else if (!info.st_mode & S_IFDIR)
     throw slow_motion_io::WriteVideoFailException();
-  cv::VideoWriter video(video_path.append("\\" + this->get_name() + "_out.avi"),
-                        CV_FOURCC('M', 'J', 'P', 'G'), 24,  // 24 FPS
+  cv::String video_name = video_path.append("\\" + this->get_name() + "_out.avi");
+  cv::VideoWriter video(video_name, CV_FOURCC('M', 'J', 'P', 'G'), 24,
                         cv::Size(this->get_frame_width(),
                                  this->get_frame_height()));
   while (!this->is_empty()) {
@@ -49,6 +49,7 @@ void Sequence::WriteVideo(std::string video_path) {
     this->pop_front();
   }
   video.release();
+  std::cout << "The video was written to: \n" + video_name << std::endl;
 }
 
 void Sequence::DisplayVideo() {

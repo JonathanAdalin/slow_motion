@@ -5,6 +5,15 @@
 
 namespace slow_motion_io {
 
+// Display <frame> to the user who can use keystroke to close the window.
+// The displayed window has name <window_name>, which will default to "Frame".
+inline void DisplayFrame(cv::Mat frame, std::string window_name = "Frame") {
+  cv::namedWindow(window_name, cv::WINDOW_AUTOSIZE);
+  cv::imshow(window_name, frame);
+  cv::waitKey(0);
+  cv::destroyAllWindows();
+}
+
 struct LoadVideoFailException : public std::exception {
    const char * what() const throw () {
      return " Could not load target video.";
