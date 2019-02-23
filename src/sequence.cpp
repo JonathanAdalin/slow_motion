@@ -46,7 +46,7 @@ void Sequence::WriteVideo(std::string video_path) {
                                  this->get_frame_height()));
   while (!this->is_empty()) {
     video.write(this->front());
-    this->pop_front();
+    this->remove(0);
   }
   video.release();
   std::cout << "The video was written to: \n" + video_name << std::endl;

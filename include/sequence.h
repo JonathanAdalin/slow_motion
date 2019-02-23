@@ -15,11 +15,11 @@ class Sequence {
   Sequence(std::string video_path);
 
   // Accessors and mutators
-  const std::list<cv::Mat> get_frames() { return this->frames; }
+  const std::vector<cv::Mat> get_frames() { return this->frames; }
   void push_back(cv::Mat frame) { this->frames.push_back(frame); }
+  void remove(int i) { this->frames.erase(frames.begin() + i); }
   bool is_empty() { return this->frames.empty(); }
   const cv::Mat front() { return this->frames.front(); }
-  void pop_front() { this->frames.pop_front(); }
   const std::string get_name() { return this->name; }
   void set_name(std::string name) { this->name = name; }
   void set_frame_width(int width) { this->frame_width = width; }
@@ -48,8 +48,8 @@ class Sequence {
   };
 
  private:
-  // Frame interpolation requires multiple inserts, which are O(1) for lists.
-  std::list<cv::Mat> frames;
+  // We need to access frames often and vectors have O(1) access.
+  std::vector<cv::Mat> frames;
   std::string name;
   int frame_width;
   int frame_height;
