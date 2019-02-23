@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
   try {
     sequence::Sequence sequence = sequence::Sequence(argv[1]);
     sequence.DisplayVideo();
-    // flow::CalculateFlow(sequence.front(), sequence.front());
+    // flow::CalculateFlow(sequence.get_frame(0), sequence.get_frame(1));
     sequence.WriteVideo("C:\\Users\\jadali\\Code\\slow_motion\\out");
   }
   catch (std::exception &e) {

@@ -17,9 +17,9 @@ class Sequence {
   // Accessors and mutators
   const std::vector<cv::Mat> get_frames() { return this->frames; }
   void push_back(cv::Mat frame) { this->frames.push_back(frame); }
+  const cv::Mat get_frame(int i) { return this->frames[i]; }
   void remove(int i) { this->frames.erase(frames.begin() + i); }
   bool is_empty() { return this->frames.empty(); }
-  const cv::Mat front() { return this->frames.front(); }
   const std::string get_name() { return this->name; }
   void set_name(std::string name) { this->name = name; }
   void set_frame_width(int width) { this->frame_width = width; }

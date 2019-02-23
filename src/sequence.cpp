@@ -45,7 +45,7 @@ void Sequence::WriteVideo(std::string video_path) {
                         cv::Size(this->get_frame_width(),
                                  this->get_frame_height()));
   while (!this->is_empty()) {
-    video.write(this->front());
+    video.write(this->get_frame(0));
     this->remove(0);
   }
   video.release();
